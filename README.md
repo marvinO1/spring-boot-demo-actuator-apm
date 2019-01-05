@@ -1,6 +1,7 @@
 # spring-boot-demo-actuator
-Spring-Boot Actuator Example with kibana APM agent
-* [Open Source Application Performance Monitoring](https://www.elastic.co/solutions/apm)
+Spring-Boot Actuator Example with 
+* enabled [prometheus metrics](https://prometheus.io/)
+* kibana APM agent, [Open Source Application Performance Monitoring](https://www.elastic.co/solutions/apm)
 
 
 # Java
