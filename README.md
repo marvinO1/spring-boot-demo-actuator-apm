@@ -14,13 +14,18 @@ docker container run -d --name spring-8080 -p 8080:8080 marvino1/spring-boot-dem
 docker container run -d --name spring-8081 -p 8081:8080 marvino1/spring-boot-demo-actuator-apm
 ```
 
-# Actuator Endpoints
+# Spring Nativ Actuator Endpoints
 ```
 http://localhost:8080/actuator
 http://localhost:8080/actuator/metrics
 http://localhost:8080/actuator/metrics/{name-of-metrics}
 http://localhost:8080/actuator/prometheus
 ```
+# Prometheus Actuator Endpoint
+```
+http://localhost:8080/actuator/prometheus
+```
+
 
 # Business Endpoints
 Show simple statistics 
