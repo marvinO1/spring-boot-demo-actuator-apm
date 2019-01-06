@@ -19,7 +19,7 @@ docker container run -d --name spring-8081 -p 8081:8080 marvino1/spring-boot-dem
 http://localhost:8080/actuator
 http://localhost:8080/actuator/metrics
 http://localhost:8080/actuator/metrics/{name-of-metrics}
-http://localhost:8080/actuator/metrics/prometheus
+http://localhost:8080/actuator/prometheus
 ```
 
 # Business Endpoints
