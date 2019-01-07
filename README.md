@@ -64,3 +64,12 @@ In bash shell execute following
 while [ true ] ; do time curl <endpoint-url> ; sleep 1 ; done
 ```
 You can remove the sleep from this command to increase the load.
+
+In Powerstell execute following
+```
+for($i = 0; $i -lt 999999999; $i++)
+{
+  Invoke-RestMethod <endpoint-url>
+	Start-Sleep -Seconds 1
+}
+```
