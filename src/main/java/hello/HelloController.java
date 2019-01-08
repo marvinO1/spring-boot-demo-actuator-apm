@@ -16,6 +16,7 @@ public class HelloController {
     private AtomicInteger slowCounter = new AtomicInteger(0);
     private AtomicInteger runtimeExceptionCounter = new AtomicInteger(0);
     private AtomicInteger hossaExceptionCounter = new AtomicInteger(0);
+    private AtomicInteger bertaExceptionCounter = new AtomicInteger(0);
 
     @RequestMapping("/")
     public String index() {        
@@ -25,6 +26,7 @@ public class HelloController {
                 + ", slowCounter=" + slowCounter.get()
                 + ", runtimeExceptionCounter=" + runtimeExceptionCounter.get()
                 + ", hossaExceptionCounter=" + hossaExceptionCounter.get()
+                + ", bertaExceptionCounter=" + bertaExceptionCounter.get()
                 ;
     }
 
@@ -32,6 +34,17 @@ public class HelloController {
     public String fast() {
         randomPause(MILLIS, 30);
         return "Greetings from Spring Boot, fastCounter=" + fastCounter.incrementAndGet();
+    }
+
+    @RequestMapping("/fast-berta")
+    public String fastBerta() {
+        randomPause(MILLIS, 30);
+        try {
+          throwBertaException();
+        } catch(BertaException ihe) {
+          // nop
+        }
+        return "Greetings from Spring Boot, bertaExceptionCounter=" + bertaExceptionCounter.get();
     }
 
     @RequestMapping("/medium")
@@ -63,4 +76,9 @@ public class HelloController {
             //
         }
     }
+
+    private void throwBertaException() {
+        throw new BertaException("" + bertaExceptionCounter.incrementAndGet());
+    }
+
 }

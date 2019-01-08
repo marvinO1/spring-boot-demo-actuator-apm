@@ -37,6 +37,11 @@ Returns within a couple of milliseconds
 http://localhost:8080/fast
 ```
 
+Returns within a couple of milliseconds but throws and catches BertaException 
+```
+http://localhost:8080/fast-berta
+```
+
 Returns within 5 seconds
 ```
 http://localhost:8080/medium
