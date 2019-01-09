@@ -53,14 +53,14 @@ http://localhost:8080/exception/hossa
 
 # Create Load
 ## Unix
-In bash shell execute following
+In bash shell execute
 ```
 while [ true ] ; do time curl <endpoint-url> ; sleep 1 ; done
 ```
 You can remove the sleep from this command to increase the load.
 
 ## Windows10
-In Powerstell execute following
+In Powershell execute 
 ```
 for($i = 0; $i -lt 999999999; $i++)
 {
