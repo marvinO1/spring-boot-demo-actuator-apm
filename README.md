@@ -26,55 +26,46 @@ http://localhost:8080/actuator/prometheus
 ```
 
 
-# Business Endpoints
-Show simple statistics 
+# Business Endpoints 
 ```
 http://localhost:8080
-```
+  Show simple statistics
+  
+http://localhost:8080/fast  
+  Returns within a couple of milliseconds  
 
-Returns within a couple of milliseconds
-```
-http://localhost:8080/fast
-```
-
-Returns within a couple of milliseconds but throws and catches BertaException 
-```
 http://localhost:8080/fast-berta
-```
-
-Returns within 5 seconds
-```
+  Returns within a couple of milliseconds but throws and catches BertaException 
+  
 http://localhost:8080/medium
-```
+  Returns within 5 seconds
 
-Returns within 10 seconds
-```
 http://localhost:8080/slow
-```
-
-Throws a RuntimeException
-```
+  Returns within 10 seconds
+  
 http://localhost:8080/exception/runtime
-```
+  Throws a RuntimeException
 
-Throws a HossaException
-```
 http://localhost:8080/exception/hossa
+  Throws a HossaException
+    
 ```
-
 
 # Create Load
+## Unix
 In bash shell execute following
 ```
 while [ true ] ; do time curl <endpoint-url> ; sleep 1 ; done
 ```
 You can remove the sleep from this command to increase the load.
 
+## Windows10
 In Powerstell execute following
 ```
 for($i = 0; $i -lt 999999999; $i++)
 {
   Invoke-RestMethod <endpoint-url>
-	Start-Sleep -Seconds 1
+  Start-Sleep -Seconds 1
 }
 ```
+You can remove the sleep from this command to increase the load.
