@@ -14,19 +14,19 @@ docker container run -d --name spring-8080 -p 8080:8080 marvino1/spring-boot-dem
 docker container run -d --name spring-8081 -p 8081:8080 marvino1/spring-boot-demo-actuator-apm
 ```
 
-# Spring Nativ Actuator Endpoints
+# Spring native actuator endpoints
 ```
 http://localhost:8080/actuator
 http://localhost:8080/actuator/metrics
 http://localhost:8080/actuator/metrics/{name-of-metrics}
 ```
-# Prometheus Actuator Endpoint
+# Prometheus actuator endpoints
 ```
 http://localhost:8080/actuator/prometheus
 ```
 
 
-# Business Endpoints 
+# Business endpoints 
 ```
 http://localhost:8080
   Show simple statistics
@@ -51,7 +51,7 @@ http://localhost:8080/exception/hossa
     
 ```
 
-# Create Load
+# Create load
 ## Unix
 In bash shell execute
 ```
