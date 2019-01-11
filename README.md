@@ -28,25 +28,25 @@ http://localhost:8080/actuator/prometheus
 
 # Business endpoints 
 ```
-http://localhost:8080
+http://localhost:8080/hello
   Show simple statistics
   
-http://localhost:8080/fast  
+http://localhost:8080/hello/fast  
   Returns within a couple of milliseconds  
 
-http://localhost:8080/fast-berta
+http://localhost:8080/hello/fast-berta
   Returns within a couple of milliseconds but throws and catches BertaException 
   
-http://localhost:8080/medium
+http://localhost:8080/hello/medium
   Returns within 5 seconds
 
-http://localhost:8080/slow
+http://localhost:8080/hello/slow
   Returns within 10 seconds
   
-http://localhost:8080/exception/runtime
+http://localhost:8080/hello/exception/runtime
   Throws a RuntimeException
 
-http://localhost:8080/exception/hossa
+http://localhost:8080/hello/exception/hossa
   Throws a HossaException
     
 ```

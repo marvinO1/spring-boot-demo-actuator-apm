@@ -18,9 +18,9 @@ public class HelloController {
     private AtomicInteger hossaExceptionCounter = new AtomicInteger(0);
     private AtomicInteger bertaExceptionCounter = new AtomicInteger(0);
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     public String index() {        
-        return "Greetings from Spring Boot"
+        return "Greetings from Spring Boot Hello Application"
                 + ", fastCounter=" + fastCounter.get()
                 + ", mediumCounter=" + mediumCounter.get()
                 + ", slowCounter=" + slowCounter.get()
@@ -30,13 +30,13 @@ public class HelloController {
                 ;
     }
 
-    @RequestMapping("/fast")
+    @RequestMapping("/hello/fast")
     public String fast() {
         randomPause(MILLIS, 30);
         return "Greetings from Spring Boot, fastCounter=" + fastCounter.incrementAndGet();
     }
 
-    @RequestMapping("/fast-berta")
+    @RequestMapping("/hello/fast-berta")
     public String fastBerta() {
         randomPause(MILLIS, 30);
         try {
@@ -47,24 +47,24 @@ public class HelloController {
         return "Greetings from Spring Boot, bertaExceptionCounter=" + bertaExceptionCounter.get();
     }
 
-    @RequestMapping("/medium")
+    @RequestMapping("/hello/medium")
     public String medium() {
         randomPause(SECONDS, 5);
         return "Greetings from Spring Boot, mediumCounter=" + mediumCounter.incrementAndGet();
     }
 
-    @RequestMapping("/slow")
+    @RequestMapping("/hello/slow")
     public String slow() {
         randomPause(SECONDS, 10);
         return "Greetings from Spring Boot, slowCounter=" + slowCounter.incrementAndGet();
     }
 
-    @RequestMapping("/exception/runtime")
+    @RequestMapping("/hello/exception/runtime")
     public String exceptionRuntime() {
         throw new RuntimeException("" + runtimeExceptionCounter.incrementAndGet());
     }
 
-    @RequestMapping("/exception/hossa")
+    @RequestMapping("/hello/exception/hossa")
     public String exceptionHossa() {
         throw new HossaException("" + hossaExceptionCounter.incrementAndGet());
     }
