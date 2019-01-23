@@ -5,7 +5,7 @@ Spring-Boot Actuator Example with
 
 # Java
 ```
-java -javaagent:elastic-apm-agent-1.2.0.jar -D"elastic.apm.service_name=hello-application" -D"elastic.apm.server_url=http://localhost:8200" -D"elastic.apm.application_packages=hello" -jar target/gs-spring-boot-0.1.0.jar --management.endpoints.web.exposure.include=*
+java -javaagent:elastic-apm-agent-1.2.0.jar -D"elastic.apm.service_name=hello-application" -D"elastic.apm.server_url=http://localhost:8200" -D"elastic.apm.application_packages=hello" -jar target/gs-spring-boot-0.1.0.jar 
 ```
 # Docker
 ```
@@ -25,6 +25,8 @@ http://localhost:8080/actuator/metrics/{name-of-metrics}
 http://localhost:8080/actuator/prometheus
 ```
 
+# Elastic metrics
+The metrics are pushed to local elastic instance when enabled. See application.properties for more details.
 
 # Business endpoints 
 ```
