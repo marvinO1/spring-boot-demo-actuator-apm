@@ -10,8 +10,6 @@ java -javaagent:elastic-apm-agent-1.2.0.jar -D"elastic.apm.service_name=hello-ap
 # Docker without apm
 ```
 docker image build -f Dockerfile -t marvino1/spring-boot-demo-actuator .
-docker image build -f Dockerfile -t marvino1/spring-boot-demo-actuator .
-
 docker container run -d --name spring-8080 -p 8080:8080 marvino1/spring-boot-demo-actuator
 docker container run -d --name spring-8081 -p 8081:8080 marvino1/spring-boot-demo-actuator
 ```
@@ -19,7 +17,6 @@ docker container run -d --name spring-8081 -p 8081:8080 marvino1/spring-boot-dem
 # Docker with apm
 ```
 docker image build -f Dockerfile-with-apm -t marvino1/spring-boot-demo-actuator-apm .
-
 docker container run -d --name spring-8080 -p 8080:8080 marvino1/spring-boot-demo-actuator-apm
 docker container run -d --name spring-8081 -p 8081:8080 marvino1/spring-boot-demo-actuator-apm
 ```
