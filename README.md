@@ -7,12 +7,23 @@ Spring-Boot Actuator Example with
 ```
 java -javaagent:elastic-apm-agent-1.2.0.jar -D"elastic.apm.service_name=hello-application" -D"elastic.apm.server_url=http://localhost:8200" -D"elastic.apm.application_packages=hello" -jar target/gs-spring-boot-0.1.0.jar 
 ```
-# Docker
+# Docker without apm
 ```
-docker image build -t marvino1/spring-boot-demo-actuator-apm .
+docker image build -f Dockerfile -t marvino1/spring-boot-demo-actuator .
+docker image build -f Dockerfile -t marvino1/spring-boot-demo-actuator .
+
+docker container run -d --name spring-8080 -p 8080:8080 marvino1/spring-boot-demo-actuator
+docker container run -d --name spring-8081 -p 8081:8080 marvino1/spring-boot-demo-actuator
+```
+
+# Docker with apm
+```
+docker image build -f Dockerfile-with-apm -t marvino1/spring-boot-demo-actuator-apm .
+
 docker container run -d --name spring-8080 -p 8080:8080 marvino1/spring-boot-demo-actuator-apm
 docker container run -d --name spring-8081 -p 8081:8080 marvino1/spring-boot-demo-actuator-apm
 ```
+
 
 # Spring native actuator endpoints
 ```
