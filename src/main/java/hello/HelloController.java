@@ -19,8 +19,9 @@ public class HelloController {
     private AtomicInteger bertaExceptionCounter = new AtomicInteger(0);
 
     @RequestMapping("/hello")
-    public String index() {        
-        return "Greetings from Spring Boot Hello Application"
+    public String index() {
+        return "Greetings from Spring Boot Hello Application running on host "
+                + System.getenv("HOSTNAME")
                 + ", fastCounter=" + fastCounter.get()
                 + ", mediumCounter=" + mediumCounter.get()
                 + ", slowCounter=" + slowCounter.get()
