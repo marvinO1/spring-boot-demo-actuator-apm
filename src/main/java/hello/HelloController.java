@@ -20,15 +20,17 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String index() {
-        return "Greetings from Spring Boot Hello Application running on host "
+        String msg = "Greetings from Spring Boot Hello Application running on host "
                 + System.getenv("HOSTNAME")
                 + ", fastCounter=" + fastCounter.get()
                 + ", mediumCounter=" + mediumCounter.get()
                 + ", slowCounter=" + slowCounter.get()
                 + ", runtimeExceptionCounter=" + runtimeExceptionCounter.get()
                 + ", hossaExceptionCounter=" + hossaExceptionCounter.get()
-                + ", bertaExceptionCounter=" + bertaExceptionCounter.get()
-                ;
+                + ", bertaExceptionCounter=" + bertaExceptionCounter.get();
+
+        System.out.println(msg);
+        return msg;
     }
 
     @RequestMapping("/hello/fast")
