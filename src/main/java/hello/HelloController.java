@@ -1,9 +1,17 @@
 package hello;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @RestController
 public class HelloController {
@@ -19,8 +27,10 @@ public class HelloController {
     private AtomicInteger bertaExceptionCounter = new AtomicInteger(0);
 
     @RequestMapping("/hello")
-    public String index() {
-        String msg = "Greetings from Spring Boot Hello Application running on host "
+    public String hello() {
+        LocalDateTime.now();
+        String msg = LocalDateTime.now()
+                + ", Greetings from Spring Boot Hello Application running on host "
                 + System.getenv("HOSTNAME")
                 + ", fastCounter=" + fastCounter.get()
                 + ", mediumCounter=" + mediumCounter.get()
@@ -31,6 +41,28 @@ public class HelloController {
 
         System.out.println(msg);
         return msg;
+    }
+
+    @RequestMapping("/hello/properties")
+    public String properties() {
+        StringWriter writer = new StringWriter();
+        System.getProperties().list(new PrintWriter(writer));
+        return writer.getBuffer().toString();
+    }
+
+    @RequestMapping("/hello/wd")
+    public String wd() {
+
+        String workingDirectory = System.getProperty("user.dir");
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("working directory=").append(workingDirectory)
+          .append(";\n")
+          .append(dir(workingDirectory))
+          .append(";\n")
+          .append(dir("data"));
+
+        return sb.toString();
     }
 
     @RequestMapping("/hello/fast")
@@ -82,6 +114,17 @@ public class HelloController {
 
     private void throwBertaException() {
         throw new BertaException("" + bertaExceptionCounter.incrementAndGet());
+    }
+
+    private static String dir(String dirName) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("file count in ").append(dirName).append("=");
+        try {
+            sb.append(Files.list(Paths.get(dirName)).count());
+        } catch (IOException e) {
+            sb.append("failed to access directory, reason=").append(e);
+        }
+        return sb.toString();
     }
 
 }

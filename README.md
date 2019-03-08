@@ -41,6 +41,12 @@ The metrics are pushed to local elastic instance when enabled. See application.p
 http://localhost:8080/hello
   Show simple statistics
   
+http://localhost:8080/properties
+  Show properties of jvm
+  
+http://localhost:8080/wd
+  Show some simple information about the durrent working directory
+    
 http://localhost:8080/hello/fast  
   Returns within a couple of milliseconds  
 
@@ -60,6 +66,7 @@ http://localhost:8080/hello/exception/hossa
   Throws a HossaException
     
 ```
+
 
 # Create load
 ## Unix
